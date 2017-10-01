@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^messages/', include('messages.urls')),
+    url(r'^messages/', include('board_messages.urls')),
 ]
