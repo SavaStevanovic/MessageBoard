@@ -8,16 +8,16 @@ class Board(models.Model):
         return self.name + ", " + str(self.order) + ", " + str(self.pub_date)
 
 
-class List(models.Model):
+class List_board(models.Model):
     board = models.ForeignKey(Board, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     order = models.IntegerField(default=0)
     pub_date = models.DateTimeField()
     def __str__(self):
-        return self.board + ", " + self.name + ", " + self.order + ", " + self.pub_date
+        return str(self.board) + ", " + self.name + ", " + str(self.order) + ", " + str(self.pub_date)
     
 class Card(models.Model):
-    list = models.ForeignKey(List, on_delete=models.CASCADE)
+    list = models.ForeignKey(List_board, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     card_text = models.TextField()
     order = models.IntegerField(default=0)
