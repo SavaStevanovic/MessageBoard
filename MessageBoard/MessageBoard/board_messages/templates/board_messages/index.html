@@ -1,9 +1,10 @@
-{% if latest_question_list %}
-    <ul>
-    {% for board in latest_boards_list %}
-        <li><a href="/polls/{{ question.name }}/detail">{{ board.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No boards are available.</p>
-{% endif %}
+<ul>
+{% for board in latest_boards_list %}
+    <li><a href="/messages/{{ board.id }}">{{ board.name }}</a></li>
+{% endfor %}
+<form action="/messages/add_board/" method="POST">
+    {% csrf_token %}
+	{{ form }}
+	<input type="submit" value="Submit" />
+</form>
+</ul>

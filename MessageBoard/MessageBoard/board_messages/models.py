@@ -5,7 +5,7 @@ class Board(models.Model):
     order = models.IntegerField(default=0)
     pub_date = models.DateTimeField()
     def __str__(self):
-        return self.name + ", " + self.order + ", " + self.pub_date
+        return self.name + ", " + str(self.order) + ", " + str(self.pub_date)
 
 
 class List(models.Model):
