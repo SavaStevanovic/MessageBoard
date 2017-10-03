@@ -18,7 +18,7 @@ def index(request):
                }
     return render(request, template_name, context)
 
-def list_card(request, list_id):
+def list_card(request, board_id, list_id):
     template_name = 'board_messages/list_card.html'
     try:
         latest_card_list = Card.objects.filter(list_id=list_id).order_by('order');
@@ -27,10 +27,11 @@ def list_card(request, list_id):
     context = {'latest_card_list':latest_card_list,
                'list_id':list_id,
                'card_form':NameForm,
+               'board_id':board_id,
                }
     return render(request, template_name, context)
 
-def add_card(request, list_id, board_id):
+def add_card(request, board_id, list_id):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -38,13 +39,10 @@ def add_card(request, list_id, board_id):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            list_name = form.cleaned_data.get("Name")
-            list_card = Card.objects.get(pk=list_id)
-            try:
-                latest_card_list = Card.objects.filter(list_id=list_id).count();
-            except List_board.DoesNotExist:
-                latest_card_list = 0;
-            List_board.objects.create(List_board=list_card, name=list_name, order=latest_card_list, pub_date=datetime.date.today())
+            card_name = form.cleaned_data.get("Name")
+            list_board = List_board.objects.get(pk=list_id)
+            latest_card_list = Card.objects.filter(list_id=list_id).count();
+            Card.objects.create(list=list_board, name=card_name, order=latest_card_list, pub_date=datetime.date.today())
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('board_messages:detail', args=(board_id,)))
 
@@ -59,8 +57,8 @@ def detail(request, board_id):
         latest_list_board_list = List_board.objects.filter(board_id=board_id).order_by('order');
     except Exception:
         latest_list_board_list = None;
-    list_list_board_id=latest_list_board_list.values('id');
-    card_list=Card.objects.filter(list_id__in=list_list_board_id);
+    list_list_board_id = latest_list_board_list.values('id');
+    card_list = Card.objects.filter(list_id__in=list_list_board_id);
     context = {'latest_list_board_list':latest_list_board_list,
                'board_id':board_id,
                'form':NameForm,

@@ -1,10 +1,10 @@
 <ul>
 {% for card in latest_card_list %}
 	{% if card and card.list_id is list_id %}
- 	  	 <li><a href="/messages/list/{{ card.id }}/detail">{{ card.name }}</a></li>
+ 	  	 <li><a href="/messages/{{ board_id }}/list/{{ card.id }}/detail">{{ card.name }}</a></li>
  	{% endif %} 	 
 {% endfor %}
-<form action="/messages/list/{{ card.id }}/add_card/" method="POST">
+<form action="/messages/{{ board_id }}/list/{{ list_id }}/add_card/" method="POST">
     {% csrf_token %}
 	{{ card_form }}
 	<input type="submit" value="Submit" />
