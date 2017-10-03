@@ -2,7 +2,7 @@
 {% for list in latest_list_board_list %}
     <div>
     <a href="/messages/{{ list.id }}">{{ list.name }}</a>
-    {% include  'board_messages/list_card.html' with list_id=list.id latest_card_list=card_list card_form=form board_id=board_id %}    
+    {% include 'board_messages/list_card.html' with list_id=list.id latest_card_list=card_list card_form=form board_id=board_id %}    
     </div>
 {% endfor %}
 </ul>

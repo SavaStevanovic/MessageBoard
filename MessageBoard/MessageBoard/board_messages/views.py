@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 import datetime
 
 from .models import Category, Board, List_board, Card
-from .forms import NameForm
+from .forms import NameForm, UpdateForm
 
 def index(request):
     template_name = 'board_messages/index.html'
@@ -17,6 +17,20 @@ def index(request):
                'form':NameForm,
                }
     return render(request, template_name, context)
+
+class UpdateCardView(generic.UpdateView):
+    model = Card
+    fields=['card_text']
+    form=UpdateForm
+    template_name = 'board_messages/card.html'
+    success_url = '/messages/'
+    
+    def get_context_data(self, **kwargs):
+        context = super(UpdateCardView, self).get_context_data(**kwargs)
+        context['list'] = List_board.objects.get(id=context['card'].list_id)
+        context['list_id']=self.kwargs['list_id']
+        context['board_id']=self.kwargs['board_id']
+        return context 
 
 def list_card(request, board_id, list_id):
     template_name = 'board_messages/list_card.html'

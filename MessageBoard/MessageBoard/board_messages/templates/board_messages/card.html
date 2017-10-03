@@ -1,0 +1,7 @@
+<h2>{{ card.name }}</h2>
+<p>in list {{ list.name }}</p>
+<form action={% url 'board_messages:edit_card' board_id=board_id list_id=list_id pk=card.id %} method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+</form>

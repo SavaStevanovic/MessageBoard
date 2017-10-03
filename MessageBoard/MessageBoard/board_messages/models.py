@@ -23,7 +23,7 @@ class Card(models.Model):
     order = models.IntegerField(default=0)
     pub_date = models.DateTimeField()    
     def __str__(self):
-        return self.list + ", " + self.name + ", " + self.card_text + ", " + self.order + ", " + self.pub_date
+        return str(self.list) + ", " + self.name + ", " + self.card_text + ", " + str(self.order) + ", " + str(self.pub_date)
     
 class Category(models.Model):
     card = models.ForeignKey(Card, on_delete=models.CASCADE, null=True)
