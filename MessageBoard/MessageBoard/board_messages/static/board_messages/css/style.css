@@ -1,0 +1,8 @@
+﻿div
+{ 
+float: left;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+padding-left:10px;
+}

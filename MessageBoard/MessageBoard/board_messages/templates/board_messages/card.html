@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'board_messages/css/style.css' %}" />
+
 <h2>{{ card.name }}</h2>
 <p>in list {{ list.name }}</p>
 <form action={% url 'board_messages:edit_card' board_id=board_id list_id=list_id pk=card.id %} method="post">
