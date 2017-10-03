@@ -23,7 +23,9 @@ class UpdateCardView(generic.UpdateView):
     fields=['card_text']
     form=UpdateForm
     template_name = 'board_messages/card.html'
-    success_url = '/messages/'
+    
+    def get_success_url(self):
+        return reverse('board_messages:detail', kwargs={'board_id':self.kwargs['board_id']})
     
     def get_context_data(self, **kwargs):
         context = super(UpdateCardView, self).get_context_data(**kwargs)
