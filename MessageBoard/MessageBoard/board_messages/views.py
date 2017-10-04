@@ -1,14 +1,30 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 from django import forms
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 import datetime
 
 from .models import Category, Board, List_board, Card
 from .forms import NameForm, UpdateForm
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/messages/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 def index(request):
     template_name = 'board_messages/index.html'
