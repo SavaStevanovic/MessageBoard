@@ -1,10 +1,16 @@
 <ul>
 {% for card in latest_card_list %}
 	{% if card and card.list_id is list_id %}
- 	  	 <li class="cards"><a class="card_link" href={% url 'board_messages:edit_card' board_id list_id card.id %} >{{ card.name }}</a></li>
+ 	  	 <li class="cards">
+ 	  	 <a class="card_link" href={% url 'board_messages:edit_card' board_id list_id card.id %} >{{ card.name }}</a>
+ 	  	 <form  action={% url 'board_messages:delete_card' board_id=board_id list_id=list_id pk=card.id %} method="POST">
+ 	  		 {% csrf_token %}
+			<input class="delete" type="submit" value="X" />
+	     </form>
+ 	  	 </li>
  	{% endif %} 	 
 {% endfor %}
-<form action="/messages/{{ board_id }}/list/{{ list_id }}/add_card/" method="POST">
+<form class="aform" action="/messages/{{ board_id }}/list/{{ list_id }}/add_card/" method="POST">
     {% csrf_token %}
 	{{ card_form.as_p }}
 	<input class="button" type="submit" value="Create" />

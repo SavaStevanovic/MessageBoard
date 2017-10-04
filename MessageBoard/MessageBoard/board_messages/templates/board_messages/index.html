@@ -4,10 +4,10 @@
 
 <ul class="container">
 {% for board in latest_boards_list %}
-    <li class="old"><a href="/messages/{{ board.id }}">{{ board.name }}</a></li>
+    <li class="old"><a class="aform" href="/messages/{{ board.id }}">{{ board.name }}</a></li>
 {% endfor %}
 <li class="new">
-<form  action="/messages/add_board/" method="POST">
+<form class="aform" action="/messages/add_board/" method="POST">
     {% csrf_token %}
 	{{ form.as_p }}
 	<input class="button" type="submit" value="Create" />

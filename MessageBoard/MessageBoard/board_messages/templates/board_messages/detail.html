@@ -9,7 +9,7 @@
     </li>
 {% endfor %}
 <li class="new">
-<form action="/messages/{{ board_id }}/add_list/" method="POST">
+<form class="aform" action="/messages/{{ board_id }}/add_list/" method="POST">
     {% csrf_token %}
 	{{ form.as_p }}
 	<input class="button" type="submit" value="Create" />
