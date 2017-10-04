@@ -1,8 +1,43 @@
-﻿div
-{ 
-float: left;
+﻿.container {
 display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-padding-left:10px;
+flex-wrap: wrap;
+padding: 20px 1pc 0;
+max-width: 1250px;
+margin: 0 auto;
+width: auto;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+-webkit-padding-start: 40px;
+font-weight: 700;
+font: sans-serif;
+font-size: 18;
+line-height: 20px;
+}
+
+.container li
+{ 
+list-style-type: none;
+float: left;
+width:25%;
+background-color: rgb(0, 121, 191);
+background-clip:content-box;
+box-sizing: border-box;
+padding: 0 8px 8px 0;
+position: relative;
+height:100px;
+}
+
+a
+{
+display: inline-block;
+background-size: cover;
+background-position: center center;
+color: #fff;
+line-height: 20px;
+margin: 5px 5px 5px 5px;
+padding: 3px 3px 3px 3px;
+position: relative;
+text-decoration: none;
 }

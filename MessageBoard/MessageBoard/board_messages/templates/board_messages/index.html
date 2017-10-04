@@ -1,15 +1,19 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'board_messages/css/style.css' %}" />
 
-<ul>
+
+<ul class="container">
 {% for board in latest_boards_list %}
-    <div><a href="/messages/{{ board.id }}">{{ board.name }}</a></div>
+    <li><a href="/messages/{{ board.id }}">{{ board.name }}</a></li>
 {% endfor %}
-<div>
+<li class="new">
 <form action="/messages/add_board/" method="POST">
     {% csrf_token %}
 	{{ form }}
 	<input type="submit" value="Submit" />
 </form>
-</div>
+</li>
 </ul>
+</br>
+
+
