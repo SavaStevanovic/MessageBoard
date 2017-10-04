@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^list/(?P<list_id>[0-9]+)/$', views.list_card, name='list_card'),
     url(r'^(?P<board_id>[0-9]+)/list/(?P<list_id>[0-9]+)/add_card/', views.add_card, name='add_card'),
     url(r'^(?P<board_id>[0-9]+)/list/(?P<list_id>[0-9]+)/card/(?P<pk>[0-9]+)/edit', views.UpdateCardView.as_view(), name='edit_card'),
+    url(r'^(?P<board_id>[0-9]+)/list/(?P<list_id>[0-9]+)/card/(?P<pk>[0-9]+)/delete', views.DeleteCardView.as_view(), name='delete_card'),
 ]

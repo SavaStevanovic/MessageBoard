@@ -1,7 +1,8 @@
 ﻿.container {
+list-style:none;
+padding-left : 0;
 display: flex;
 flex-wrap: wrap;
-padding: 20px 1pc 0;
 margin: 0 auto;
 width: auto;
 -webkit-margin-before: 1em;
@@ -12,11 +13,14 @@ width: auto;
 line-height: 20px;
 }
 
-.container li
+.container .oldsub
 { 
+padding-left : 0;
+height:300px;
+list-style:none;
+padding-left:0;
 list-style-type: none;
 float: left;
-width:20%;
 padding: 0px 8px 8px 0px;
 margin: 0px 16px 20px 0px;
 position: relative;
@@ -28,17 +32,40 @@ border-top-right-radius: 5px;
 border-bottom-right-radius: 5px;   
 border-top-left-radius: 5px;
 border-bottom-left-radius: 5px;   
-background-color: rgb(0, 121, 191);    
-       
+background-color: rgb(0, 121, 191);        
 }
-a
+
+.container .old
+{ 
+padding-left : 0;
+list-style:none;
+padding-left:0;
+list-style-type: none;
+float: left;
+width:18%;
+padding: 0px 8px 8px 0px;
+margin: 0px 16px 20px 0px;
+position: relative;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;  
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomleft: 5px;               
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;   
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;   
+background-color: rgb(0, 121, 191);        
+}
+
+a, form
 {
+list-style:none;
 font-weight:700;
 font-size:16px;
 font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 display: inline-block;
 width:100%;
-height:90px;
+height:70px;
 background-size: cover;
 background-position: center center;
 color: #fff;
@@ -49,14 +76,113 @@ position: relative;
 text-decoration: none;
 }
 
-a
+.container .new 
 {
+list-style:none;
+list-style-type: none;
+float: left;
+width:18%;
+padding: 0px 8px 8px 0px;
+margin: 0px 16px 20px 0px;
+position: relative;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;  
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomleft: 5px;               
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;   
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;   
+background-color: #E1E3E5;    
+}
+
+.card_link
+{
+list-style:none;
 font-weight:700;
 font-size:16px;
 font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 display: inline-block;
 width:100%;
-height:90px;
+background-size: cover;
+background-position: center center;
+color: #fff;
+line-height: 20px;
+margin: 5px 5px 5px 5px;
+padding: 3px 3px 3px 3px;
+position: relative;
+text-decoration: none; 
+height:auto !important;   
+}
+
+.button {
+-moz-border-radius-topright: 3px;
+-moz-border-radius-bottomright: 3px;  
+-moz-border-radius-topleft: 3px;
+-moz-border-radius-bottomleft: 3px;               
+border-top-right-radius: 3px;
+border-bottom-right-radius: 3px;   
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;  
+background-color: #5AAC44;
+border: none;
+color: white;
+cursor: pointer;
+display: inline-block;
+font-weight: 700;
+line-height: 22px;
+margin: 8px 4px 0 0;
+padding: 5px 1pc;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-weight:700;
+font-size:15px;
+box-shadow: 0 1px 0 #519839;
+font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+
+.cards{
+list-style-type: none;
+width:100%;
+padding: 0px 8px 0px 0px;
+margin: 0px 0px 10px 0px;
+position: relative;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;  
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomleft: 5px;               
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;   
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;   
+background-color: lightblue;  
+}
+
+ul{
+    padding: 5px;
+    list-style-type: none;
+}
+
+p
+{
+margin: 8px 4px 0 0;
+font-weight:700;
+font-size:16px;
+font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+color: #fff;
+line-height: 20px;
+padding: 3px 3px 3px 3px;
+position: relative;
+}
+
+h2
+{
+list-style:none;
+font-weight:700;
+font-size:20px;
+font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+display: inline-block;
 background-size: cover;
 background-position: center center;
 color: #fff;

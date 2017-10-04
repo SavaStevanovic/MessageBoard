@@ -1,10 +1,13 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'board_messages/css/style.css' %}" />
-
+<div class="container">
+<div class="oldsub">
 <h2>{{ card.name }}</h2>
 <p>in list {{ list.name }}</p>
 <form action={% url 'board_messages:edit_card' board_id=board_id list_id=list_id pk=card.id %} method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
-	<input type="submit" value="Submit" />
+	<input class="button" type="submit" value="Update" />
 </form>
+</div>
+</div>

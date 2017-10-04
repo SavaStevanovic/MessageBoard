@@ -18,6 +18,14 @@ def index(request):
                }
     return render(request, template_name, context)
 
+class DeleteCardView(generic.DeleteView):
+    model = Card
+    form=UpdateForm
+    template_name = 'board_messages/card.html'
+    
+    def get_success_url(self):
+        return reverse('board_messages:detail', kwargs={'board_id':self.kwargs['board_id']})
+
 class UpdateCardView(generic.UpdateView):
     model = Card
     fields=['card_text']

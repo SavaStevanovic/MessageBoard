@@ -1,12 +1,12 @@
 <ul>
 {% for card in latest_card_list %}
 	{% if card and card.list_id is list_id %}
- 	  	 <li><a href={% url 'board_messages:edit_card' board_id list_id card.id %} >{{ card.name }}</a></li>
+ 	  	 <li class="cards"><a class="card_link" href={% url 'board_messages:edit_card' board_id list_id card.id %} >{{ card.name }}</a></li>
  	{% endif %} 	 
 {% endfor %}
 <form action="/messages/{{ board_id }}/list/{{ list_id }}/add_card/" method="POST">
     {% csrf_token %}
-	{{ card_form }}
-	<input type="submit" value="Submit" />
+	{{ card_form.as_p }}
+	<input class="button" type="submit" value="Create" />
 </form>
 </ul>
