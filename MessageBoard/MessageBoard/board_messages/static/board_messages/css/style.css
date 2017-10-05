@@ -61,6 +61,7 @@ overflow-wrap: break-word;
 list-style:none;
 font-weight:700;
 font-size:16px;
+width:100%;
 font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
 display: inline-block;
 width:auto !important;  

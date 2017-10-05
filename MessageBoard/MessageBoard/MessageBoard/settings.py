@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'board_messages.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'MessageBoard.urls'
@@ -121,3 +122,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/messages/'
+
+LOGIN_EXEMPT_URLS = (
+r'^admin/',
+) 
+
+LOGIN_URL = (
+'/login/'
+) 

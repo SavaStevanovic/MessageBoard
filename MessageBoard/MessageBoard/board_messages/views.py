@@ -2,15 +2,17 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
-from django import forms
-from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from re import compile
 
 import datetime
 
 from .models import Category, Board, List_board, Card
 from .forms import NameForm, UpdateForm
+
 
 def signup(request):
     if request.method == 'POST':
@@ -57,7 +59,8 @@ class UpdateCardView(generic.UpdateView):
         context['list_id']=self.kwargs['list_id']
         context['board_id']=self.kwargs['board_id']
         return context 
-
+    
+@login_required 
 def list_card(request, board_id, list_id):
     template_name = 'board_messages/list_card.html'
     try:
@@ -71,6 +74,7 @@ def list_card(request, board_id, list_id):
                }
     return render(request, template_name, context)
 
+@login_required 
 def add_card(request, board_id, list_id):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
